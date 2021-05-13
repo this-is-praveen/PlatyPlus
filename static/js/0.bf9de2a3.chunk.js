@@ -1,0 +1,2 @@
+(this.webpackJsonpplatyplus=this.webpackJsonpplatyplus||[]).push([[0,2,7],{39:function(t,e,u){"use strict";u.r(e);var c=u(54);e.default=c.default},54:function(t,e,u){"use strict";u.r(e);var c=u(0),n=(u(75),u(5));e.default=function(t){return Object(c.useEffect)((function(){document.title="Welcome User"})),Object(n.jsx)("div",{children:"hi"})}},75:function(t,e,u){}}]);
+//# sourceMappingURL=0.bf9de2a3.chunk.js.map

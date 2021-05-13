@@ -1,0 +1,2 @@
+(this.webpackJsonpplatyplus=this.webpackJsonpplatyplus||[]).push([[1,3],{40:function(t,s,u){"use strict";u.r(s);var c=u(55);s.default=c.default},55:function(t,s,u){"use strict";u.r(s);u(0);var c=u(5);s.default=function(t){return console.log("props ",t),Object(c.jsx)("div",{children:"Product"})}}}]);
+//# sourceMappingURL=1.561c58da.chunk.js.map
