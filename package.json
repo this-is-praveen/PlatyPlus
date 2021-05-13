@@ -1,5 +1,6 @@
 {
   "name": "platyplus",
+  "homepage": "http://this-is-praveen.github.io/PlatyPlus",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -9,6 +10,7 @@
     "@testing-library/user-event": "^12.1.10",
     "bootstrap": "^5.0.0",
     "get-value": "^3.0.1",
+    "gh-pages": "^3.1.0",
     "node-sass": "^5.0.0",
     "react": "^17.0.2",
     "react-bootstrap": "^1.6.0",
@@ -28,7 +30,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject", 
+    "predeploy": "npm run build", 
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
