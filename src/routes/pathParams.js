@@ -1,15 +1,17 @@
 const pathParams = [
   {
-    path: `/`,
+    path: `/PlatyPlus`,
     pageName: "HomePage",
+    exact: true,
   },
   {
-    path: `/product/:productId`,
+    path: `/PlatyPlus/product/:productId`,
     pageName: "Product",
   },
   {
     path: "*",
     pageName: "Page404",
+    exact: false,
   },
 ];
 

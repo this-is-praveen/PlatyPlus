@@ -8,14 +8,16 @@ import {
   Navbar,
 } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
+import { Link } from "react-router-dom";
+import { useDate } from "../../utils/utils";
 import "./styles.scss";
 const Header = () => {
   return (
     <header>
-      <Navbar fixed="top" bg="dark" variant="dark" expand="lg">
-        <LinkContainer to="/">
+      <Navbar bg="dark" variant="dark" expand="lg">
+        <Link to="/PlatyPlus">
           <Navbar.Brand>PlatyPlus</Navbar.Brand>
-        </LinkContainer>
+        </Link>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse className="justify-space-between" id="navbarScroll">
           <Nav
@@ -25,13 +27,18 @@ const Header = () => {
           >
             <Nav.Link href="#action2"></Nav.Link>
             <NavDropdown title="Categories" id="navbarScrollingDropdown">
-              <NavDropdown.Item href="#action3">Category #1</NavDropdown.Item>
+              <Link className="dropdown-item" to="/PlatyPlus/product/test">
+                Category #1
+              </Link>
               <NavDropdown.Divider />
               <NavDropdown.Item href="#action4">Category #2</NavDropdown.Item>
               <NavDropdown.Divider />
               <NavDropdown.Item href="#action5">Category #3</NavDropdown.Item>
             </NavDropdown>
           </Nav>
+          <p className="my-auto mr-4" style={{ color: "white" }}>
+            {useDate().wish + " Praveen"}
+          </p>
           <Form className="d-flex">
             <FormControl
               type="search"

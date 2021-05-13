@@ -16,7 +16,7 @@ import { useDate } from "../../utils/utils";
 
 export const Footer = () => {
   return (
-    <footer class="main-footer bg-dark">
+    <footer className="main-footer bg-dark">
       <Container>
         <Navbar variant="dark">
           <Nav className="w-100">
@@ -25,25 +25,25 @@ export const Footer = () => {
                 <Nav.Link>{useDate().date + " " + useDate().time}</Nav.Link>
               </Col>
               <Col>
-                <ul class="list-inline social-buttons">
-                  <li class="list-inline-item">
+                <ul className="list-inline social-buttons">
+                  <li className="list-inline-item">
                     <LinkContainer to="#">
                       <Nav.Link>
-                        <i class="fab fa-twitter"></i>
+                        <i className="fab fa-twitter"></i>
                       </Nav.Link>
                     </LinkContainer>
                   </li>
-                  <li class="list-inline-item">
+                  <li className="list-inline-item">
                     <LinkContainer to="#">
                       <Nav.Link>
-                        <i class="fab fa-facebook-f"></i>{" "}
+                        <i className="fab fa-facebook-f"></i>{" "}
                       </Nav.Link>
                     </LinkContainer>
                   </li>
-                  <li class="list-inline-item">
+                  <li className="list-inline-item">
                     <LinkContainer to="#">
                       <Nav.Link>
-                        <i class="fab fa-linkedin-in"></i>{" "}
+                        <i className="fab fa-linkedin-in"></i>{" "}
                       </Nav.Link>
                     </LinkContainer>
                   </li>
