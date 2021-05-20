@@ -1,0 +1,15 @@
+.Toastify__toast.success {
+  .Toastify__progress-bar {
+    background-color: #1e9f9a;
+  }
+}
+.Toastify__toast.warning {
+  .Toastify__progress-bar {
+    background-color: yellow;
+  }
+}
+.Toastify__toast.fail {
+  .Toastify__progress-bar {
+    background-color: red;
+  }
+}

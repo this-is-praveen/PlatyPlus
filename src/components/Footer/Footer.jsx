@@ -13,6 +13,7 @@ import {
 import "./styles.scss";
 import { LinkContainer } from "react-router-bootstrap";
 import { useDate } from "../../utils/utils";
+import { ToastContainer } from "react-toastify";
 
 export const Footer = () => {
   return (
@@ -53,6 +54,7 @@ export const Footer = () => {
           </Nav>
         </Navbar>
       </Container>
+      <ToastContainer />
     </footer>
   );
 };

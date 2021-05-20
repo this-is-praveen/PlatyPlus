@@ -1,4 +1,6 @@
 import React from "react";
+import ReactDOM from "react-dom";
+import { toast, ToastContainer } from "react-toastify";
 
 export const useDate = () => {
   const locale = "en";
@@ -36,4 +38,36 @@ export const useDate = () => {
     time,
     wish,
   };
+};
+
+export const setToastMessage = (props) => {
+  ReactDOM.createPortal(<ToastContainer />, document.body);
+
+  const { message, status } = props;
+  const statusMark =
+    status === "success" ? (
+      <i className={"fa fa-check mr-2"} aria-hidden={true} />
+    ) : status === "fail" ? (
+      <i className={"fas fa-times mr-2"} aria-hidden={true} />
+    ) : status === "warning" ? (
+      <i className={"fas fa-exclamation-triangle mr-2"} aria-hidden={true} />
+    ) : (
+      <React.Fragment />
+    );
+
+  toast.dark(
+    <p className="mb-0">
+      {statusMark}
+      {message}
+    </p>,
+    {
+      position: "bottom-center",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      className: `${status}`,
+    }
+  );
 };

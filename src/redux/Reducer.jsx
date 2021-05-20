@@ -1,17 +1,18 @@
-import React from "react";
+import { LOGINUSER, LOGOUT } from "./ActionTypes";
 
-const Reducer = (state = [], action = {}) => {
+const Reducer = (state = {}, action = {}) => {
   switch (action.type) {
-    case "ADD": {
-      return [
+    case LOGINUSER: {
+      return {
+        userDetails: { ...action.payload },
         ...state,
-        {
-          data: action.payload,
-        },
-      ];
+      };
     }
+    case LOGOUT:
+      delete state.userDetails;
+      return { ...state };
     default: {
-      return state;
+      return { ...state };
     }
   }
 };

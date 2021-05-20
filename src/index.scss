@@ -1,5 +1,31 @@
 @import "~bootstrap/scss/bootstrap";
 @import url("https://fonts.googleapis.com/css2?family=KoHo:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&display=swap");
+@import "react-toastify/dist/ReactToastify.css";
+
+textarea:focus,
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="datetime"]:focus,
+input[type="datetime-local"]:focus,
+input[type="date"]:focus,
+input[type="month"]:focus,
+input[type="time"]:focus,
+input[type="week"]:focus,
+input[type="number"]:focus,
+input[type="email"]:focus,
+input[type="url"]:focus,
+input[type="search"]:focus,
+input[type="tel"]:focus,
+input[type="color"]:focus,
+.uneditable-input:focus {
+  border-color: #1e9f9a;
+  box-shadow: 0 1px 1px #00000013 inset, 0 0 8px #1e9f9a99;
+  outline: 0 none;
+}
+.dropdown-item.active,
+.dropdown-item:active {
+  background-color: #1e9f9a;
+}
 
 body {
   margin: 0;
