@@ -17,9 +17,9 @@ import { ToastContainer } from "react-toastify";
 
 export const Footer = () => {
   return (
-    <footer className="main-footer bg-dark">
+    <footer className="main-footer bg-black">
       <Container>
-        <Navbar variant="dark">
+        <Navbar className="bg-black" variant="dark">
           <Nav className="w-100">
             <Row className="d-flex w-100 text-center">
               <Col>

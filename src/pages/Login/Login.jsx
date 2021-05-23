@@ -14,6 +14,7 @@ import * as Yup from "yup";
 import { API_END_POINT, DOMAINPATH } from "../../redux/ActionTypes";
 import reduxStore from "../../redux/store";
 import { setToastMessage } from "../../utils/utils";
+import "./styles.scss";
 
 const store = get(reduxStore, "store", {});
 
@@ -61,7 +62,7 @@ export function LoginForm(props) {
   };
 
   return (
-    <Container>
+    <Container className="login-container">
       <Row>
         <h1 className="mt-5 text-center">Welcome</h1>
       </Row>

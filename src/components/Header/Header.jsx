@@ -10,15 +10,27 @@ import { CategoryNavBar } from "./CategoryNavBar";
 import "./styles.scss";
 
 const store = get(reduxStore, "store", {});
-
 const Header = (props) => {
+  const [headerHeight, setHeaderHeight] = React.useState(0);
+  React.useEffect(() => {
+    const headerHeightNew =
+      document.querySelector(".header-nav-bar").offsetHeight;
+    if (headerHeight !== headerHeightNew) {
+      setHeaderHeight(headerHeightNew);
+    }
+  });
   const userDetails = get(props, "userDetails", {});
   const wish = useDate().wish;
   return (
-    <header>
-      <Navbar fixed="top" bg="dark" variant="dark" expand="lg">
+    <header style={{ height: `${headerHeight}px` }}>
+      <Navbar
+        fixed="top"
+        className="header-nav-bar bg-black"
+        variant="dark"
+        expand="lg"
+      >
         <Link to="/PlatyPlus">
-          <Navbar.Brand>PlatyPlus</Navbar.Brand>
+          <Navbar.Brand className="glow">PlatyPlus</Navbar.Brand>
         </Link>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse className="justify-space-between" id="navbarScroll">

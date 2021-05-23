@@ -1,0 +1,67 @@
+.card-deck .card {
+  flex: 2 0 40%;
+  margin: 0 2rem 4rem 2rem;
+  border: solid 0.5rem black;
+  border-radius: 1rem;
+  cursor: pointer;
+  transition: all ease 200ms;
+  background-color: black;
+  max-width: 100%;
+  a {
+    text-decoration: none;
+  }
+  &:hover {
+    transform: scale(1.03);
+    box-shadow: 0 13px 40px -5px #e8e8f11f, 0 8px 32px -8px #ffffff24,
+      0 -6px 32px -6px #ffffff05;
+  }
+  .card-header {
+    display: flex;
+    background-color: white;
+    justify-content: center;
+    align-items: center;
+    .product-image-loader {
+      display: flex;
+      height: 250px;
+      align-items: center;
+      svg {
+        height: 100px;
+      }
+    }
+  }
+  img {
+    height: 250px;
+    width: auto;
+    object-fit: cover;
+  }
+
+  .card-body {
+    .product-desc {
+      margin: 0;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 2; /* number of lines to show */
+      line-height: 1.5em; /* fallback */
+      max-height: 3em; /* fallback */
+    }
+  }
+  .card-body,
+  .card-footer {
+    background-color: transparent;
+    color: white;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .card-deck .card {
+    .card-header {
+      img {
+        height: 250px;
+        width: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+}

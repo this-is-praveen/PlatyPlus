@@ -6,15 +6,17 @@ import { Image } from "react-bootstrap";
 // Import Swiper styles
 import "swiper/swiper.min.css";
 import "swiper/components/pagination/pagination.min.css";
+import "swiper/components/lazy/lazy.scss";
+import "swiper/components/navigation/navigation.min.css";
 
 import "./styles.scss";
 
 // import Swiper core and required modules
-import SwiperCore, { EffectCoverflow, Pagination } from "swiper/core";
+import SwiperCore, { Lazy, EffectCoverflow, Pagination } from "swiper/core";
 import get from "get-value";
 
 // install Swiper modules
-SwiperCore.use([EffectCoverflow, Pagination]);
+SwiperCore.use([EffectCoverflow, Lazy, Pagination]);
 
 export default function SwiperComponent(props) {
   const swiperProps = get(props, "swiperProps", {});
@@ -27,23 +29,20 @@ export default function SwiperComponent(props) {
         }}
         className="mySwiper"
         {...swiperProps}
+        style={{
+          "--swiper-navigation-color": "#fff",
+          "--swiper-pagination-color": "#fff",
+        }}
+        lazy={true}
       >
         {children?.map((data, index) => {
           return (
             <SwiperSlide key="index">
-              <Image src={data} />
+              <Image data-src={data} className="swiper-lazy" alt={""} />
+              <div className="swiper-lazy-preloader swiper-lazy-preloader-white" />
             </SwiperSlide>
           );
         })}
-        {/* <SwiperSlide>
-          <div style={{ height: "250px" }}>Slide 1</div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div style={{ height: "250px" }}>Slide 4</div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div style={{ height: "250px" }}>Slide 5</div>
-        </SwiperSlide> */}
       </Swiper>
     </React.Fragment>
   );

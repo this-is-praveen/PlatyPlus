@@ -1,18 +1,15 @@
-import React from "react";
-import useFetch from "use-http";
-import { API_END_POINT } from "../../redux/ActionTypes";
 import get from "get-value";
-import SwiperComponent from "../../components/Swiper/Swiper";
+import React from "react";
+import { Accordion, Card, CardDeck, Col, Row } from "react-bootstrap";
+import useFetch from "use-http";
 import { LoadingSpinner } from "../../assets/svg";
+import ProductInfo from "../../components/ProductInfo/ProductInfo";
+import { API_END_POINT } from "../../redux/ActionTypes";
 import "./styles.scss";
+
 const Category = (props) => {
   const [categoryResponse, setCategoryResponse] = React.useState([]);
-  const {
-    get: getResponse,
-    response,
-    error,
-    loading,
-  } = useFetch(API_END_POINT);
+  const { get: getResponse, response, loading } = useFetch(API_END_POINT);
   const categoryId = decodeURIComponent(
     get(props, "match.params.categoryName", "")
   );
@@ -29,32 +26,32 @@ const Category = (props) => {
       setCategoryResponse(categoryResponse);
     }
   };
-  const swiperProps = {
-    effect: "coverflow",
-    grabCursor: true,
-    centeredSlides: true,
-    slidesPerView: "auto",
-    coverflowEffect: {
-      rotate: 50,
-      stretch: 0,
-      depth: 100,
-      modifier: 1,
-      slideShadows: false,
-    },
-    // slidesPerView: 3,
-    // slidesPerColumn: 2,
-    // spaceBetween: 10,
-  };
-
   return (
     <div className="catalog-container">
       {loading ? (
         <LoadingSpinner className="catalog-loading-spinner d-flex justify-content-center" />
       ) : (
-        <SwiperComponent
-          swiperProps={swiperProps}
-          children={categoryResponse.map((data) => get(data, "image", ""))}
-        />
+        <Row className="mw-100 my-5">
+          <Col>
+            <Accordion defaultActiveKey="0" style={{ color: "white" }}>
+              <Accordion.Toggle as={Card.Header} eventKey="0">
+                Category
+              </Accordion.Toggle>
+              <Accordion.Collapse eventKey="0">
+                <Card.Body>
+                  <p className="glow ">Hello! I'm the body</p>
+                </Card.Body>
+              </Accordion.Collapse>
+            </Accordion>
+          </Col>
+          <Col style={{ flexGrow: 5 }}>
+            <CardDeck className="plp-wrapper">
+              {categoryResponse.map((data) => {
+                return <ProductInfo data={data} />;
+              })}
+            </CardDeck>
+          </Col>
+        </Row>
       )}
     </div>
   );

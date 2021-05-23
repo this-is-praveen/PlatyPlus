@@ -1,3 +1,4 @@
+import get from "get-value";
 import React from "react";
 import { Nav, NavDropdown } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
@@ -21,11 +22,7 @@ export const CategoryNavBar = () => {
   };
 
   return (
-    <Nav
-      className="category-dropdown mr-auto my-2 my-lg-0"
-      style={{ maxHeight: "100px" }}
-      navbarScroll
-    >
+    <Nav className="category-dropdown mr-auto my-2 my-lg-0" navbarScroll>
       <NavDropdown title="Category" id={"category-dropdown-title"}>
         {error ? (
           <div>Error : {error}</div>
