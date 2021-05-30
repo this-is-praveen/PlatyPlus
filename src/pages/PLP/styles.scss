@@ -1,0 +1,19 @@
+.plp-container {
+  .plp-loading-spinner {
+    height: 50vh;
+    align-items: center;
+    svg {
+      height: 40%;
+    }
+  }
+  .category-pane {
+    display: flex;
+    flex-direction: column;
+    .category-list {
+      text-decoration: none;
+      color: white;
+      text-transform: capitalize;
+      margin: 10px 0 10px auto;
+    }
+  }
+}

@@ -1,4 +1,4 @@
 import React from "react";
-const Context = React.createContext();
-export const ContextProvider = Context.Provider;
-export default ContextProvider;
+const ContextData = React.createContext({});
+export const ContextDataProvider = ContextData.Provider;
+export default ContextData;

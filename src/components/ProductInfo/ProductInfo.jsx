@@ -23,7 +23,7 @@ const ProductInfo = (props) => {
             placeholder={
               <ImageLoadingHolder className={"product-image-loader"} />
             }
-            debounce={400}
+            debounce={-4000}
             height={"250px"}
           >
             <Image src={imageSrc} alt={title} />

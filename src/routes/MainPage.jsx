@@ -5,21 +5,21 @@ import { Footer } from "../components/Footer/Footer";
 import Routes from "./Routes";
 import { Provider } from "react-redux";
 import reduxStore from "../redux/store";
-import ContextProvider from "./context/Context";
+import { ContextDataProvider } from "./context/Context";
 import { PersistGate } from "redux-persist/integration/react";
 
 const MainPage = (props) => {
-  const [theme, setTheme] = React.useState("normal");
+  const [contextObj, setContextObj] = React.useState({ data: {} });
 
   return (
     <BrowserRouter>
       <Provider store={reduxStore.store}>
         <PersistGate loading={null} persistor={reduxStore.persistore}>
-          <ContextProvider value={{ theme, setTheme }}>
+          <ContextDataProvider value={{ contextObj, setContextObj }}>
             <Header />
             <Routes />
             <Footer />
-          </ContextProvider>
+          </ContextDataProvider>
         </PersistGate>
       </Provider>
     </BrowserRouter>

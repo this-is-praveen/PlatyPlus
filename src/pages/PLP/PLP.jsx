@@ -1,21 +1,26 @@
 import get from "get-value";
-import React from "react";
+import React, { useContext } from "react";
 import { Accordion, Card, CardDeck, Col, Row } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import useFetch from "use-http";
 import { LoadingSpinner } from "../../assets/svg";
 import ProductInfo from "../../components/ProductInfo/ProductInfo";
-import { API_END_POINT } from "../../redux/ActionTypes";
+import { API_END_POINT, DOMAINPATH } from "../../redux/ActionTypes";
+import ContextData from "../../routes/context/Context";
 import "./styles.scss";
 
-const Category = (props) => {
+const PLP = (props) => {
+  const context = useContext(ContextData);
   const [categoryResponse, setCategoryResponse] = React.useState([]);
+  const getContextData = get(context, "contextObj", {});
   const { get: getResponse, response, loading } = useFetch(API_END_POINT);
+  const categoryListFromContext = get(getContextData, "categoryList", []);
   const categoryId = decodeURIComponent(
     get(props, "match.params.categoryName", "")
   );
+
   React.useEffect(() => {
     getCategoryResponse();
-    console.log("categoryId ", categoryId);
   }, [categoryId]);
 
   const getCategoryResponse = async () => {
@@ -26,10 +31,11 @@ const Category = (props) => {
       setCategoryResponse(categoryResponse);
     }
   };
+
   return (
-    <div className="catalog-container">
+    <div className="plp-container">
       {loading ? (
-        <LoadingSpinner className="catalog-loading-spinner d-flex justify-content-center" />
+        <LoadingSpinner className="plp-loading-spinner d-flex justify-content-center" />
       ) : (
         <Row className="mw-100 my-5">
           <Col>
@@ -38,8 +44,22 @@ const Category = (props) => {
                 Category
               </Accordion.Toggle>
               <Accordion.Collapse eventKey="0">
-                <Card.Body>
-                  <p className="glow ">Hello! I'm the body</p>
+                <Card.Body className="category-pane">
+                  {categoryListFromContext?.map((categoryName, index) => {
+                    return (
+                      <Link
+                        className={`category-list  ${
+                          categoryId === categoryName ? "glow" : ""
+                        }`}
+                        key={categoryName + index}
+                        to={`${DOMAINPATH}/category/${encodeURIComponent(
+                          categoryName
+                        )}`}
+                      >
+                        {categoryName}
+                      </Link>
+                    );
+                  })}
                 </Card.Body>
               </Accordion.Collapse>
             </Accordion>
@@ -56,4 +76,4 @@ const Category = (props) => {
     </div>
   );
 };
-export default Category;
+export default PLP;

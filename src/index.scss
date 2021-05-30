@@ -1,8 +1,7 @@
 @import "~bootstrap/scss/bootstrap";
 @import url("https://fonts.googleapis.com/css2?family=KoHo:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&display=swap");
 @import "react-toastify/dist/ReactToastify.css";
-
-$site-green-color: #1e9f9a;
+@import "/src/utils/StyleLib.scss";
 
 textarea:focus,
 input[type="text"]:focus,
@@ -43,7 +42,10 @@ body {
   animation-fill-mode: forwards;
 
   .route-content {
-    min-height: 90vh;
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 }
 .shine {
@@ -62,12 +64,12 @@ body {
   animation-iteration-count: infinite;
   text-shadow: 0 0px 0px rgba(9, 180, 23, 0.5);
 }
-.glow {
-  color: #fff;
-  -webkit-animation: neon 1.5s ease-in-out infinite alternate;
-  -moz-animation: neon 1.5s ease-in-out infinite alternate;
-  animation: neon 1.5s ease-in-out infinite alternate;
-}
+// .glow {
+//   color: #fff;
+//   -webkit-animation: neon 1.5s ease-in-out infinite alternate;
+//   -moz-animation: neon 1.5s ease-in-out infinite alternate;
+//   animation: neon 1.5s ease-in-out infinite alternate;
+// }
 
 /* custom scrollbar */
 ::-webkit-scrollbar {

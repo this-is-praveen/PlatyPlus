@@ -1,0 +1,20 @@
+.pdp-image-wrapper {
+  display: flex;
+  justify-content: center;
+  .lazyload-wrapper {
+    max-width: 90%;
+    .product-image-loader svg {
+      width: 200px;
+      height: 400px;
+      rect {
+        fill: white;
+      }
+    }
+    img {
+      border: 2px solid black;
+      max-height: 500px;
+      max-width: 100%;
+      width: auto;
+    }
+  }
+}

@@ -1,6 +1,6 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
-import Category from "../pages/Category/Category";
+import PLP from "../pages/PLP/PLP";
 import HomePage from "../pages/HomePage/HomePage";
 import { LoginForm } from "../pages/Login/Login";
 import Page404 from "../pages/Page404";
@@ -32,11 +32,7 @@ const Routes = () => {
       <Switch>
         <Route exact path="/PlatyPlus" component={HomePage} />
         <Route exact path="/PlatyPlus/product/:productId" component={Product} />
-        <Route
-          exact
-          path="/PlatyPlus/category/:categoryName"
-          component={Category}
-        />
+        <Route exact path="/PlatyPlus/category/:categoryName" component={PLP} />
         <Route exact path="/PlatyPlus/login" component={LoginForm} />
         <Route path="*" component={Page404} />
       </Switch>
