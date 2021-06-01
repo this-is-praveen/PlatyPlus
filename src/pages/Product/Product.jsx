@@ -6,7 +6,7 @@ import useFetch from "use-http";
 import { LoadingSpinner } from "../../assets/svg";
 import { API_END_POINT, DOMAINPATH } from "../../redux/ActionTypes";
 import { ProductLeftPart } from "./ProductLeftPart";
-import { ProductRightPart } from "./ProductRightPart";
+import ProductRightPart from "./ProductRightPart";
 import "./styles.scss";
 
 const Product = (props) => {
@@ -62,8 +62,8 @@ const Product = (props) => {
             <Col lg={6} md={6} sm={12} className="pdp-left">
               {ProductLeftPart(propsToPass)}
             </Col>
-            <Col lg={6} md={6} sm={12} className="pdp-left">
-              {ProductRightPart(propsToPass)}
+            <Col lg={6} md={6} sm={12} className="pdp-right">
+              <ProductRightPart {...propsToPass} />
             </Col>
           </Row>
         </React.Fragment>

@@ -1,6 +1,20 @@
 .main-banner .swiper-wrapper {
   .swiper-slide {
     min-height: 400px;
+    .lazyload-wrapper {
+      .swiper-lazy-place-holder {
+        height: 350px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        svg {
+          height: 150px;
+          rect {
+            fill: white;
+          }
+        }
+      }
+    }
     img {
       border: 1px solid white;
       padding: 1px;

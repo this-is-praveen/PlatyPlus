@@ -14,7 +14,6 @@ import "./styles.scss";
 
 // import Swiper core and required modules
 import SwiperCore, {
-  Lazy,
   EffectFade,
   EffectCoverflow,
   Pagination,
@@ -22,24 +21,19 @@ import SwiperCore, {
   Autoplay,
 } from "swiper/core";
 import get from "get-value";
+import LazyLoad from "react-lazyload";
+import { ImageLoadingHolder } from "../../assets/svg";
 
 // install Swiper modules
-SwiperCore.use([
-  Autoplay,
-  Navigation,
-  EffectCoverflow,
-  EffectFade,
-  Lazy,
-  Pagination,
-]);
+SwiperCore.use([Autoplay, Navigation, EffectCoverflow, EffectFade, Pagination]);
 
 export default function SwiperComponent(props) {
   const swiperProps = get(props, "swiperProps", {});
+  const lazyProps = get(props, "lazyProps", {});
   const children = get(props, "children", []);
   const isLoop = get(props, "loop", false);
   const isLazy = get(props, "lazy", false);
-  console.log("children ", children);
-
+  console.log("swiperProps ", swiperProps);
   return (
     <React.Fragment>
       <Swiper
@@ -61,24 +55,24 @@ export default function SwiperComponent(props) {
       >
         {children?.map((data, index) => {
           const imageLink = get(data, "imgSrc", "");
-          const dataSrc = {
-            "data-src": imageLink,
-          };
-          const imgSrc = {
-            src: imageLink,
-          };
+          console.log("data ", data);
           if (imageLink) {
             return (
               <SwiperSlide key={`${get(data, "alt", "")}-${index}`}>
                 <Link to={get(data, "href", "")}>
-                  <Image
-                    className={isLazy ? "swiper-lazy" : ""}
-                    {...(isLazy ? { ...dataSrc } : { ...imgSrc })}
-                  />
+                  <LazyLoad
+                    placeholder={
+                      <ImageLoadingHolder
+                        className={"swiper-lazy-place-holder"}
+                      />
+                    }
+                    offset={[-200, 0]}
+                    debounce={500}
+                    height={"250px"}
+                  >
+                    <Image className={"swiper-img"} src={imageLink} />
+                  </LazyLoad>
                 </Link>
-                {isLazy && (
-                  <div className="swiper-lazy-preloader swiper-lazy-preloader-black" />
-                )}
               </SwiperSlide>
             );
           } else {

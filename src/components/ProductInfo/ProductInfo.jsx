@@ -1,6 +1,6 @@
 import get from "get-value";
-import React, { useRef, useState } from "react";
-import { Image, Card, CardDeck } from "react-bootstrap";
+import React from "react";
+import { Card, Image } from "react-bootstrap";
 import LazyLoad from "react-lazyload";
 import { Link } from "react-router-dom";
 import { ImageLoadingHolder } from "../../assets/svg";
@@ -23,7 +23,7 @@ const ProductInfo = (props) => {
             placeholder={
               <ImageLoadingHolder className={"product-image-loader"} />
             }
-            debounce={-4000}
+            debounce={500}
             height={"250px"}
           >
             <Image src={imageSrc} alt={title} />

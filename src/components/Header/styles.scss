@@ -4,3 +4,16 @@
 .navbar-brand {
   font-size: 2rem;
 }
+
+.cart-icon-wrapper {
+  .cart-count {
+    margin-left: 5px;
+    border: 1px solid;
+    padding: 2px 4px;
+    border-radius: 50%;
+    background-color: white;
+    color: black;
+    font-size: 12px;
+    font-weight: 700;
+  }
+}

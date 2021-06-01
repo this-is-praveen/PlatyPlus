@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 import reduxStore from "../../redux/store";
 import { setToastMessage, useDate } from "../../utils/utils";
 import { CategoryNavBar } from "./CategoryNavBar";
+import { CartIcon } from "../../assets/svg";
 import "./styles.scss";
 
 const store = get(reduxStore, "store", {});
@@ -19,6 +20,7 @@ const Header = (props) => {
       setHeaderHeight(headerHeightNew);
     }
   });
+  const cartCount = store.getState().numberCart || 0;
   const userDetails = get(props, "userDetails", {});
   const wish = useDate().wish;
   return (
@@ -59,15 +61,10 @@ const Header = (props) => {
               </Button>
             </React.Fragment>
           )}
-          <Form className="d-flex">
-            <FormControl
-              type="search"
-              placeholder="Search"
-              className="mr-2"
-              aria-label="Search"
-            />
-            <Button variant="outline-light">Search</Button>
-          </Form>
+          <div className="cart-icon-wrapper d-flex">
+            <CartIcon disableOtherIcon={true} />
+            <div className="cart-count">{cartCount}</div>
+          </div>
         </Navbar.Collapse>
       </Navbar>
     </header>

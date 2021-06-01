@@ -1,0 +1,38 @@
+.recommendation-products {
+  max-width: 90%;
+  margin: auto;
+  .recommended-title {
+    color: white;
+  }
+  .swiper-slide {
+    background-color: white;
+    background-position: center;
+    background-size: cover;
+    width: 300px;
+    height: 300px;
+    padding: 1px;
+    border: 1px solid white;
+    .lazyload-wrapper {
+      .swiper-lazy-place-holder {
+        height: 250px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        svg {
+          height: 100px;
+          rect {
+            fill: white;
+          }
+        }
+      }
+      .swiper-img {
+        min-height: 250px;
+      }
+    }
+  }
+
+  .swiper-slide img {
+    display: block;
+    width: 100%;
+  }
+}

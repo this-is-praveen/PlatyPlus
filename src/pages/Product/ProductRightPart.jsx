@@ -1,16 +1,19 @@
 import get from "get-value";
 import React from "react";
-import { useRef } from "react";
-import { Col, Row, Container } from "react-bootstrap";
-import useFetch from "use-http";
+import { connect } from "react-redux";
 import { CartIcon } from "../../assets/svg";
-import { API_END_POINT } from "../../redux/ActionTypes";
+import reduxStore from "../../redux/store";
+import { AddCart } from "../../redux/Actions";
 import "./productRightStyles.scss";
+import "./styles.scss";
 
-export const ProductRightPart = (props) => {
+const store = get(reduxStore, "store", {});
+
+const ProductRightPart = (props) => {
   const productResponse = get(props, "productResponse", {});
   const loading = get(props, "loading", false);
-  const addToCartButtonClick = () => {
+
+  const addToCartButtonClick = (item = {}) => {
     const addToCartDom = document.querySelector(".add-to-cart-button");
     if (addToCartDom) {
       addToCartDom.classList.add("added");
@@ -18,7 +21,12 @@ export const ProductRightPart = (props) => {
         addToCartDom.classList.remove("added");
       }, 2000);
     }
+    const addToCart = get(props, "AddCart", () => {});
+    console.log("store b4 ", store.getState());
+    addToCart(get(item, "productResponse", {}));
+    console.log("store after ", store.getState());
   };
+
   const renderPrice = () => {
     const salePrice = get(productResponse, "price", 0);
     const originalPrice = (salePrice + 0.3 * salePrice).toFixed(2); // Bumping price by 30%
@@ -39,7 +47,7 @@ export const ProductRightPart = (props) => {
       <div className="pdp-desc">{get(productResponse, "description", "")}</div>
       {!loading && (
         <button
-          onClick={() => addToCartButtonClick()}
+          onClick={() => addToCartButtonClick({ productResponse })}
           className="add-to-cart-button"
         >
           <CartIcon />
@@ -50,3 +58,16 @@ export const ProductRightPart = (props) => {
     </div>
   );
 };
+
+function mapStateToProps(state) {
+  return {
+    userDetails: state?.userDetails,
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    AddCart: (item) => dispatch(AddCart(item)),
+  };
+}
+export default connect(mapStateToProps, mapDispatchToProps)(ProductRightPart);

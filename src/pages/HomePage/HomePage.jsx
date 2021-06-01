@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
+import Recommendations from "../../components/Recommendations/Recommendations";
 import SwiperComponent from "../../components/Swiper/Swiper";
 import { DOMAINPATH } from "../../redux/ActionTypes";
 import "./styles.scss";
@@ -29,18 +30,6 @@ const HomePage = (props) => {
   useEffect(() => {
     document.title = "Welcome User";
   });
-  const productCarouselOption = {
-    grabCursor: true,
-    centeredSlides: true,
-    slidesPerView: "auto",
-    coverflowEffect: {
-      rotate: 50,
-      stretch: 0,
-      depth: 100,
-      modifier: 1,
-      slideShadows: true,
-    },
-  };
 
   return (
     <div className="home-page-wrapper">
@@ -54,6 +43,9 @@ const HomePage = (props) => {
           lazy={true}
           children={mainBanner}
         />
+      </div>
+      <div>
+        <Recommendations />
       </div>
     </div>
   );
