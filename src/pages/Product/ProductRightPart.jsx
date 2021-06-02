@@ -22,9 +22,7 @@ const ProductRightPart = (props) => {
       }, 2000);
     }
     const addToCart = get(props, "AddCart", () => {});
-    console.log("store b4 ", store.getState());
     addToCart(get(item, "productResponse", {}));
-    console.log("store after ", store.getState());
   };
 
   const renderPrice = () => {

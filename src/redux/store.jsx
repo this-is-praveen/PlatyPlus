@@ -9,9 +9,10 @@ const persistConfig = {
 };
 
 const persistedReducer = persistReducer(persistConfig, Reducer);
-let createStoreWithPersistedReducer = createStore(persistedReducer);
+const createStoreWithPersistedReducer = createStore(persistedReducer);
+
 //https://www.npmjs.com/package/redux-persist
-let persistore = persistStore(createStoreWithPersistedReducer);
+const persistore = persistStore(createStoreWithPersistedReducer);
 
 const reduxStore = { store: createStoreWithPersistedReducer, persistore };
 export default reduxStore;

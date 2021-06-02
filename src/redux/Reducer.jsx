@@ -28,7 +28,8 @@ const Reducer = (state = initState, action = {}) => {
         ...state,
       };
 
-    case ACTIONSTATES.ADD_CART:
+    case ACTIONSTATES.ADD_CART: {
+      const Cart = state.Carts || [];
       if (state.numberCart === 0) {
         let cart = {
           id: action.payload.id,
@@ -37,15 +38,16 @@ const Reducer = (state = initState, action = {}) => {
           image: action.payload.image,
           price: action.payload.price,
         };
-        state.Carts.push(cart);
+        Cart.push(cart);
       } else {
         let check = false;
-        state.Carts.forEach((item, idx) => {
+        Cart.forEach((item, idx) => {
           if (item.id === action.payload.id) {
-            state.Carts[idx].quantity++;
+            Cart[idx].quantity++;
             check = true;
           }
         });
+
         if (!check) {
           const newItem = {
             id: action.payload.id,
@@ -54,19 +56,20 @@ const Reducer = (state = initState, action = {}) => {
             image: action.payload.image,
             price: action.payload.price,
           };
-          state.Carts.push(newItem);
+          Cart.push(newItem);
         }
       }
       return {
-        ...state,
+        ...JSON.parse(JSON.stringify(state)),
         numberCart: state.numberCart + 1,
       };
+    }
     case ACTIONSTATES.INCREASE_QUANTITY:
       state.numberCart++;
       state.Carts[action.payload].quantity++;
 
       return {
-        ...state,
+        ...JSON.parse(JSON.stringify(state)),
       };
 
     case ACTIONSTATES.DECREASE_QUANTITY:
@@ -77,12 +80,12 @@ const Reducer = (state = initState, action = {}) => {
       }
 
       return {
-        ...state,
+        ...JSON.parse(JSON.stringify(state)),
       };
     case ACTIONSTATES.DELETE_CART:
       let quantity_ = state.Carts[action.payload].quantity;
       return {
-        ...state,
+        ...JSON.parse(JSON.stringify(state)),
         numberCart: state.numberCart - quantity_,
         Carts: state.Carts.filter((item) => {
           return item.id != state.Carts[action.payload].id;

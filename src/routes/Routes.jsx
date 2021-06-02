@@ -5,7 +5,6 @@ import HomePage from "../pages/HomePage/HomePage";
 import { LoginForm } from "../pages/Login/Login";
 import Page404 from "../pages/Page404";
 import Product from "../pages/Product/Product";
-
 // const LoadableComponent = loadable((props) => import(`../pages/${props.path}`));
 
 // const routerChildren = () => {

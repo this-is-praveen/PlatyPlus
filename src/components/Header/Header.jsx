@@ -1,14 +1,15 @@
 import get from "get-value";
 import { isEmpty } from "lodash";
 import React from "react";
-import { Button, Form, FormControl, Navbar } from "react-bootstrap";
+import { Button, Form, FormControl, Navbar, Modal } from "react-bootstrap";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import reduxStore from "../../redux/store";
 import { setToastMessage, useDate } from "../../utils/utils";
 import { CategoryNavBar } from "./CategoryNavBar";
-import { CartIcon } from "../../assets/svg";
 import "./styles.scss";
+import { DOMAINPATH } from "../../redux/ActionTypes";
+import CartOverlay from "./CartOverlay/CartOverlay";
 
 const store = get(reduxStore, "store", {});
 const Header = (props) => {
@@ -20,9 +21,16 @@ const Header = (props) => {
       setHeaderHeight(headerHeightNew);
     }
   });
-  const cartCount = store.getState().numberCart || 0;
   const userDetails = get(props, "userDetails", {});
   const wish = useDate().wish;
+
+  // const CartOverlay = (props) => {
+  //   console.log("toShowCart ", toShowCart);
+  //   return (
+
+  //   );
+  // };
+
   return (
     <header style={{ height: `${headerHeight}px` }}>
       <Navbar
@@ -61,10 +69,7 @@ const Header = (props) => {
               </Button>
             </React.Fragment>
           )}
-          <div className="cart-icon-wrapper d-flex">
-            <CartIcon disableOtherIcon={true} />
-            <div className="cart-count">{cartCount}</div>
-          </div>
+          <CartOverlay />
         </Navbar.Collapse>
       </Navbar>
     </header>
@@ -74,6 +79,7 @@ const Header = (props) => {
 function mapStateToProps(state) {
   return {
     userDetails: state?.userDetails,
+    cartCount: state?.numberCart,
   };
 }
 

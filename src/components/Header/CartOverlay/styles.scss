@@ -1,0 +1,21 @@
+@import "/src/utils/StyleLib.scss";
+
+.shopping-cart-modal {
+  width: 90%;
+  max-width: none !important;
+
+  .modal-content {
+    background-color: $site-bg-color;
+    color: white;
+    .cart-body {
+      .divider {
+        border-bottom: 1px solid white;
+        padding-bottom: 1rem;
+        margin-bottom: 1rem;
+      }
+    }
+  }
+  button {
+    color: white;
+  }
+}

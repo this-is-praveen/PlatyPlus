@@ -38,7 +38,6 @@ const Recommendations = (props) => {
       slideShadows: true,
     },
   };
-  console.log("recommendationsResponse ,", recommendationsResponse);
   const swiperChildren = recommendationsResponse.length
     ? recommendationsResponse.map((data) => {
         return {

@@ -33,7 +33,6 @@ export default function SwiperComponent(props) {
   const children = get(props, "children", []);
   const isLoop = get(props, "loop", false);
   const isLazy = get(props, "lazy", false);
-  console.log("swiperProps ", swiperProps);
   return (
     <React.Fragment>
       <Swiper
@@ -55,7 +54,6 @@ export default function SwiperComponent(props) {
       >
         {children?.map((data, index) => {
           const imageLink = get(data, "imgSrc", "");
-          console.log("data ", data);
           if (imageLink) {
             return (
               <SwiperSlide key={`${get(data, "alt", "")}-${index}`}>
