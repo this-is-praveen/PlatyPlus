@@ -8,10 +8,38 @@
     background-color: $site-bg-color;
     color: white;
     .cart-body {
+      .cart-item-field {
+        display: flex;
+        align-items: center;
+      }
       .divider {
         border-bottom: 1px solid white;
         padding-bottom: 1rem;
         margin-bottom: 1rem;
+      }
+      .cart-total.row {
+        justify-content: flex-end;
+        align-items: center;
+        .cart-total-value {
+          font-size: 2rem;
+          font-weight: 400;
+        }
+      }
+      .quantity-input {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        .quantity-input-box {
+          text-align: center;
+          width: 50px;
+          margin: auto 20px;
+          pointer-events: none;
+          font-weight: 700;
+        }
+        .quantity-input-sign {
+          background-color: $site-bg-color;
+          border-color: white;
+        }
       }
     }
   }

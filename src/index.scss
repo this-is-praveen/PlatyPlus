@@ -43,12 +43,13 @@ body {
   animation-fill-mode: forwards;
 
   .route-content {
-    min-height: 80vh;
+    min-height: 75vh;
     display: flex;
     flex-direction: column;
     // justify-content: center;
   }
 }
+
 .shine {
   background: white -webkit-gradient(
       linear,

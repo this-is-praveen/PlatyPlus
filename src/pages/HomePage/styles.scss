@@ -14,10 +14,15 @@
           }
         }
       }
-    }
-    img {
-      border: 1px solid white;
-      padding: 1px;
+      .smooth-image.image-hidden {
+        width: 1000px;
+        height: 350px;
+        background-color: white;
+      }
+      .smooth-image.image-visible {
+        border: 1px solid white;
+        padding: 1px;
+      }
     }
   }
 }

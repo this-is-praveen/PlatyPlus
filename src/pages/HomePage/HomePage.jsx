@@ -30,7 +30,10 @@ const HomePage = (props) => {
   useEffect(() => {
     document.title = "Welcome User";
   });
-
+  const lazyLoadProps = {
+    once: true,
+    debounce: 400,
+  };
   return (
     <div className="home-page-wrapper">
       <div className="main-banner">
@@ -41,6 +44,8 @@ const HomePage = (props) => {
           }}
           loop={true}
           lazy={true}
+          imageDelay={1000}
+          lazyProps={lazyLoadProps}
           children={mainBanner}
         />
       </div>

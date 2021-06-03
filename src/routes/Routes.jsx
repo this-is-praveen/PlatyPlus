@@ -5,6 +5,7 @@ import HomePage from "../pages/HomePage/HomePage";
 import { LoginForm } from "../pages/Login/Login";
 import Page404 from "../pages/Page404";
 import Product from "../pages/Product/Product";
+import Checkout from "../pages/Checkout/Checkout";
 // const LoadableComponent = loadable((props) => import(`../pages/${props.path}`));
 
 // const routerChildren = () => {
@@ -33,6 +34,7 @@ const Routes = () => {
         <Route exact path="/PlatyPlus/product/:productId" component={Product} />
         <Route exact path="/PlatyPlus/category/:categoryName" component={PLP} />
         <Route exact path="/PlatyPlus/login" component={LoginForm} />
+        <Route exact path="/PlatyPlus/checkout" component={Checkout} />
         <Route path="*" component={Page404} />
       </Switch>
     </div>

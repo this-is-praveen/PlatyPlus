@@ -1,4 +1,5 @@
 import * as ACTIONSTATES from "./ActionTypes";
+import get from "get-value";
 
 const initState = {
   numberCart: 0,
@@ -10,8 +11,8 @@ const Reducer = (state = initState, action = {}) => {
   switch (action.type) {
     case ACTIONSTATES.LOGINUSER: {
       return {
-        userDetails: { ...action.payload },
         ...state,
+        userDetails: { ...action.payload },
       };
     }
     case ACTIONSTATES.LOGOUT:
@@ -23,6 +24,7 @@ const Reducer = (state = initState, action = {}) => {
         ...state,
         products: action.payload,
       };
+
     case ACTIONSTATES.GET_NUMBER_CART:
       return {
         ...state,
@@ -64,33 +66,49 @@ const Reducer = (state = initState, action = {}) => {
         numberCart: state.numberCart + 1,
       };
     }
-    case ACTIONSTATES.INCREASE_QUANTITY:
+
+    case ACTIONSTATES.INCREASE_QUANTITY: {
+      const currentProduct = get(action, "payload", {});
+      const existingCart = get(state, "Carts", []);
+      const currentProductInStore = existingCart.find(
+        (data) => data.id === currentProduct.id
+      );
+      currentProductInStore.quantity++;
       state.numberCart++;
-      state.Carts[action.payload].quantity++;
-
       return {
         ...JSON.parse(JSON.stringify(state)),
       };
-
-    case ACTIONSTATES.DECREASE_QUANTITY:
-      let quantity = state.Carts[action.payload].quantity;
-      if (quantity > 1) {
+    }
+    case ACTIONSTATES.DECREASE_QUANTITY: {
+      const currentProduct = get(action, "payload", {});
+      const existingCart = get(state, "Carts", []);
+      const currentProductInStore = existingCart.find(
+        (data) => data.id === currentProduct.id
+      );
+      if (currentProductInStore.quantity > 1) {
+        currentProductInStore.quantity--;
         state.numberCart--;
-        state.Carts[action.payload].quantity--;
       }
-
       return {
         ...JSON.parse(JSON.stringify(state)),
       };
-    case ACTIONSTATES.DELETE_CART:
-      let quantity_ = state.Carts[action.payload].quantity;
+    }
+
+    case ACTIONSTATES.DELETE_CART: {
+      const currentProduct = get(action, "payload", {});
+      const existingCart = get(state, "Carts", []);
+      const currentProductInStore = existingCart.find(
+        (data) => data.id === currentProduct.id
+      );
+      const productQuantity = get(currentProductInStore, "quantity", 1);
       return {
         ...JSON.parse(JSON.stringify(state)),
-        numberCart: state.numberCart - quantity_,
+        numberCart: state.numberCart - productQuantity,
         Carts: state.Carts.filter((item) => {
-          return item.id != state.Carts[action.payload].id;
+          return item.id !== currentProductInStore.id;
         }),
       };
+    }
     default: {
       return { ...state };
     }

@@ -61,7 +61,7 @@ const Recommendations = (props) => {
         }}
         children={swiperChildren}
         lazy={true}
-        lazyLoadeProps={{}}
+        lazyProps={{ debounce: 1000 }}
       />
     </Row>
   );

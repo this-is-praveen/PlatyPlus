@@ -10,7 +10,6 @@ import { PersistGate } from "redux-persist/integration/react";
 
 const MainPage = (props) => {
   const [contextObj, setContextObj] = React.useState({ data: {} });
-
   return (
     <BrowserRouter>
       <Provider store={reduxStore.store}>

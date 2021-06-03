@@ -28,11 +28,14 @@ import { ImageLoadingHolder } from "../../assets/svg";
 SwiperCore.use([Autoplay, Navigation, EffectCoverflow, EffectFade, Pagination]);
 
 export default function SwiperComponent(props) {
+  const [imageLoaded, setImageLoaded] = React.useState(false);
   const swiperProps = get(props, "swiperProps", {});
   const lazyProps = get(props, "lazyProps", {});
   const children = get(props, "children", []);
   const isLoop = get(props, "loop", false);
   const isLazy = get(props, "lazy", false);
+  const imageDelay = get(props, "imageDelay", 0);
+
   return (
     <React.Fragment>
       <Swiper
@@ -64,11 +67,19 @@ export default function SwiperComponent(props) {
                         className={"swiper-lazy-place-holder"}
                       />
                     }
-                    offset={[-200, 0]}
-                    debounce={500}
-                    height={"250px"}
+                    {...lazyProps}
                   >
-                    <Image className={"swiper-img"} src={imageLink} />
+                    <Image
+                      className={`smooth-image ${
+                        imageLoaded ? "image-visible" : "image-hidden"
+                      }`}
+                      src={imageLink}
+                      onLoad={() => {
+                        setTimeout(() => {
+                          setImageLoaded(true);
+                        }, imageDelay);
+                      }}
+                    />
                   </LazyLoad>
                 </Link>
               </SwiperSlide>
