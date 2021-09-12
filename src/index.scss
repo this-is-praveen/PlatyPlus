@@ -3,6 +3,11 @@
 @import "react-toastify/dist/ReactToastify.css";
 @import "/src/utils/StyleLib.scss";
 
+@font-face {
+  font-family: "Anurati-Regular";
+  src: local("Anurati-Regular"),
+    url(./fonts/Anurati-Regular.otf) format("opentype");
+}
 textarea:focus,
 input[type="text"]:focus,
 input[type="password"]:focus,

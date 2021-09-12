@@ -6,6 +6,8 @@ import { LoginForm } from "../pages/Login/Login";
 import Page404 from "../pages/Page404";
 import Product from "../pages/Product/Product";
 import Checkout from "../pages/Checkout/Checkout";
+import { CSSTransition, TransitionGroup } from "react-transition-group";
+
 // const LoadableComponent = loadable((props) => import(`../pages/${props.path}`));
 
 // const routerChildren = () => {
@@ -26,8 +28,20 @@ import Checkout from "../pages/Checkout/Checkout";
 //   return routeChild;
 // };
 
-const Routes = () => {
+const Routes = (props = {}) => {
+  console.log("props ", props);
+  // const currentKey = location.pathname.split("/")[1] || "/";
+  // const timeout = { enter: 800, exit: 400 };
+
   return (
+    // <TransitionGroup component="div" >
+    //   <CSSTransition
+    //     key={currentKey}
+    //     timeout={timeout}
+    //     classNames="pageSlider"
+    //     mountOnEnter={false}
+    //     unmountOnExit={true}
+    //   >
     <div className="route-content">
       <Switch>
         <Route exact path="/PlatyPlus" component={HomePage} />
@@ -38,6 +52,8 @@ const Routes = () => {
         <Route path="*" component={Page404} />
       </Switch>
     </div>
+    //   </CSSTransition>
+    // </TransitionGroup>
   );
 };
 

@@ -40,7 +40,7 @@ const Header = (props) => {
         expand="lg"
       >
         <Link to="/PlatyPlus">
-          <Navbar.Brand className="glow">PlatyPlus</Navbar.Brand>
+          <Navbar.Brand className="glow">PLATYPLUS</Navbar.Brand>
         </Link>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse className="justify-space-between" id="navbarScroll">
