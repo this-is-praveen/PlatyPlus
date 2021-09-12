@@ -1,25 +1,26 @@
 {
   "files": {
-    "main.css": "/PlatyPlus/static/css/main.2e01ce87.chunk.css",
-    "main.js": "/PlatyPlus/static/js/main.9e00bc8e.chunk.js",
-    "main.js.map": "/PlatyPlus/static/js/main.9e00bc8e.chunk.js.map",
-    "runtime-main.js": "/PlatyPlus/static/js/runtime-main.70a669ef.js",
-    "runtime-main.js.map": "/PlatyPlus/static/js/runtime-main.70a669ef.js.map",
+    "main.css": "/PlatyPlus/static/css/main.e848cd32.chunk.css",
+    "main.js": "/PlatyPlus/static/js/main.d1c152ad.chunk.js",
+    "main.js.map": "/PlatyPlus/static/js/main.d1c152ad.chunk.js.map",
+    "runtime-main.js": "/PlatyPlus/static/js/runtime-main.3d01f972.js",
+    "runtime-main.js.map": "/PlatyPlus/static/js/runtime-main.3d01f972.js.map",
     "static/css/2.77cd1556.chunk.css": "/PlatyPlus/static/css/2.77cd1556.chunk.css",
-    "static/js/2.43839737.chunk.js": "/PlatyPlus/static/js/2.43839737.chunk.js",
-    "static/js/2.43839737.chunk.js.map": "/PlatyPlus/static/js/2.43839737.chunk.js.map",
-    "static/js/3.20e7a3c7.chunk.js": "/PlatyPlus/static/js/3.20e7a3c7.chunk.js",
-    "static/js/3.20e7a3c7.chunk.js.map": "/PlatyPlus/static/js/3.20e7a3c7.chunk.js.map",
+    "static/js/2.616e10f5.chunk.js": "/PlatyPlus/static/js/2.616e10f5.chunk.js",
+    "static/js/2.616e10f5.chunk.js.map": "/PlatyPlus/static/js/2.616e10f5.chunk.js.map",
+    "static/js/3.08f630aa.chunk.js": "/PlatyPlus/static/js/3.08f630aa.chunk.js",
+    "static/js/3.08f630aa.chunk.js.map": "/PlatyPlus/static/js/3.08f630aa.chunk.js.map",
     "index.html": "/PlatyPlus/index.html",
     "static/css/2.77cd1556.chunk.css.map": "/PlatyPlus/static/css/2.77cd1556.chunk.css.map",
-    "static/css/main.2e01ce87.chunk.css.map": "/PlatyPlus/static/css/main.2e01ce87.chunk.css.map",
-    "static/js/2.43839737.chunk.js.LICENSE.txt": "/PlatyPlus/static/js/2.43839737.chunk.js.LICENSE.txt"
+    "static/css/main.e848cd32.chunk.css.map": "/PlatyPlus/static/css/main.e848cd32.chunk.css.map",
+    "static/js/2.616e10f5.chunk.js.LICENSE.txt": "/PlatyPlus/static/js/2.616e10f5.chunk.js.LICENSE.txt",
+    "static/media/index.scss": "/PlatyPlus/static/media/Anurati-Regular.ada0eaa4.otf"
   },
   "entrypoints": [
-    "static/js/runtime-main.70a669ef.js",
+    "static/js/runtime-main.3d01f972.js",
     "static/css/2.77cd1556.chunk.css",
-    "static/js/2.43839737.chunk.js",
-    "static/css/main.2e01ce87.chunk.css",
-    "static/js/main.9e00bc8e.chunk.js"
+    "static/js/2.616e10f5.chunk.js",
+    "static/css/main.e848cd32.chunk.css",
+    "static/js/main.d1c152ad.chunk.js"
   ]
 }
